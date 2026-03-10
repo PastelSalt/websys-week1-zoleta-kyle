@@ -1,104 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My First Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Zoleta - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #FFE4E9;
+            color: #4A4A4A;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FFD1DC 0%, #FFC0CB 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(255, 209, 220, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #FFFFFF;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #4A4A4A;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #5A5A5A;
+            font-style: italic;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card.blue {
+            background: linear-gradient(135deg, #AEC6CF 0%, #B8D4E0 100%);
+        }
+
+        .card.gray {
+            background: linear-gradient(135deg, #D3D3D3 0%, #E0E0E0 100%);
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            color: #4A4A4A;
+            line-height: 1.8;
+        }
+
+        .card a {
+            color: #4A4A4A;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #4A4A4A;
+            transition: all 0.3s ease;
+        }
+
+        .card a:hover {
+            color: #FF69B4;
+            border-bottom-color: #FF69B4;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #FFD1DC 0%, #FFCCD5 100%);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(255, 209, 220, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(255, 209, 220, 0.5);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2em;
+            color: #4A4A4A;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: #4A4A4A;
+            line-height: 2;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD1DC 0%, #FFC0CB 100%);
+            color: #4A4A4A;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(255, 209, 220, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #FFC0CB 0%, #FFB3C1 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 209, 220, 0.6);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #808080;
+            font-size: 0.95em;
+            margin-top: 40px;
+        }
+
+        footer hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #D3D3D3, transparent);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .card h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="pfp.jpg" alt="Kyle Zoleta" class="profile-img">
+            <h1>Kyle Zoleta</h1>
+            <p>Bachelor of Science in Information Technology – 2nd Year</p>
+        </div>
 
-<body bgcolor="#f5f5f5">
+        <div class="card blue">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is <strong>Kyle Zoleta</strong>, a second-year Information Technology student.
+                I am interested in <strong>software development</strong>, <strong>system design</strong>, and <strong>modern technology</strong>.
+                I enjoy building small projects and experimenting with new programming ideas.
+                Currently, I am developing personal projects under a small software studio called 
+                <a href="https://moesoft.infinityfreeapp.com/" target="_blank">Moesoft</a>.
+            </p>
+        </div>
 
-<table width="800" align="center" bgcolor="#ffffff" border="0" cellpadding="20">
-<tr>
-<td>
+        <div class="card gray">
+            <h2>Why Information Technology?</h2>
+            <p>
+                I chose Information Technology because I want to understand how software,
+                systems, and digital technologies work. The field allows me to combine 
+                <strong>logic</strong>, <strong>creativity</strong>, and <strong>problem-solving</strong> 
+                to build useful applications.
+                I also enjoy learning how systems are designed and improving my
+                programming skills through personal projects and experimentation.
+            </p>
+        </div>
 
-<center>
-<table width="100%" bgcolor="#2c3e50" border="0" cellpadding="20">
-<tr>
-<td>
-<center>
-<font color="#ffffff" size="6" face="Arial">
-<b>Kyle Zoleta</b>
-</font>
-<br><br>
-<font color="#ecf0f1" size="4" face="Arial">
-<i>Bachelor of Science in Information Technology – 2nd Year</i>
-</font>
-</center>
-</td>
-</tr>
-</table>
-</center>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Software Development</li>
+                    <li>System Design</li>
+                    <li>Programming</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Modern Technology</li>
+                    <li>Experimentation</li>
+                    <li>Innovation</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Projects</h3>
+                <ul>
+                    <li>Moesoft Studio</li>
+                    <li>Personal Projects</li>
+                    <li>Learning</li>
+                </ul>
+            </div>
+        </div>
 
-<br>
+        <div class="btn-container">
+            <a href="https://moesoft.infinityfreeapp.com/" target="_blank" class="btn">Visit My Repository</a>
+        </div>
 
-<table width="100%" border="0" cellpadding="15">
-<tr>
-<td bgcolor="#ecf0f1">
-<font size="4" face="Arial" color="#2c3e50">
-<b> About Me</b>
-</font>
-<br><br>
-<font size="3" face="Arial" color="#34495e">
-Hello! My name is Kyle Zoleta, a second-year Information Technology student.
-I am interested in oftware development, system design, and modern technology.
-I enjoy building small projects and experimenting with new programming ideas.
-Currently, I am developing personal projects under a small software studio called Moesoft.
-</font>
-</td>
-</tr>
-</table>
-
-<br>
-
-<table width="100%" border="0" cellpadding="15">
-<tr>
-<td bgcolor="#d5e8f7">
-<font size="4" face="Arial" color="#2c3e50">
-<b>Why Information Technology?</b>
-</font>
-<br><br>
-<font size="3" face="Arial" color="#34495e">
-I chose Information Technology because I want to understand how software,
-systems, and digital technologies work. The field allows me to combine logic, 
-creativity, and problem-solving to build useful applications.
-I also enjoy learning how systems are designed and improving my
-programming skills through personal projects and experimentation.
-</font>
-</td>
-</tr>
-</table>
-
-<br>
-
-<center>
-<table width="100%" border="1" bordercolor="#bdc3c7" cellpadding="10">
-<tr bgcolor="#34495e">
-<th><font color="#ffffff" face="Arial">Skills</font></th>
-<th><font color="#ffffff" face="Arial">Interests</font></th>
-<th><font color="#ffffff" face="Arial">Projects</font></th>
-</tr>
-<tr align="center">
-<td><font face="Arial">Software Development<br>System Design<br>Programming</font></td>
-<td><font face="Arial">Modern Technology<br>Experimentation<br>Innovation</font></td>
-<td><font face="Arial">Moesoft Studio<br>Personal Projects<br>Learning</font></td>
-</tr>
-</table>
-</center>
-
-<br>
-
-<hr color="#2c3e50" width="100%">
-
-<center>
-<font size="2" face="Arial" color="#7f8c8d">
-<i>Thank you for visiting my simple website.</i>
-<br>
-<b>&copy; 2026 Kyle Zoleta</b>
-</font>
-</center>
-
-</td>
-</tr>
-</table>
-
+        <footer>
+            <hr>
+            <p><em>Thank you for visiting my website.</em></p>
+            <p><strong>&copy; 2026 Kyle Zoleta</strong></p>
+        </footer>
+    </div>
 </body>
 </html>
